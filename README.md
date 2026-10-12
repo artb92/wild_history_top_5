@@ -32,3 +32,11 @@ The video lands in `videos/<slug>/<slug>.mp4` and the image credits in `videos/<
 - Music: `"music"` in script.json, otherwise the first `.mp3` in the repo. It loops if too short and fades out at the end.
 - Timing: hook 4 s, each entry 13 s (`HOOK_SECONDS`, `ENTRY_SECONDS` in `make_video.py`).
 - Fonts: Anton and Oswald (SIL Open Font License, see `fonts/`).
+
+## Autopilot
+
+- Every day, a Claude Code routine runs `/next-idea`: it picks a new theme, writes
+  `videos/<date>-<slug>/script.json` and pushes it to `main`. Delete a folder to veto an idea.
+- Every 2 days, GitHub Actions (`.github/workflows/render.yml`) renders the oldest script not listed in
+  `videos/published.txt` and publishes the mp4 as a GitHub release, with the image credits in its notes.
+  Run it by hand from the Actions tab with "Run workflow".
