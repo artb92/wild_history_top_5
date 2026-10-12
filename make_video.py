@@ -17,6 +17,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 ROOT = Path(__file__).resolve().parent
 W, H, FPS = 1080, 1920, 30
 HOOK_SECONDS, ENTRY_SECONDS = 4, 13
+ZOOM = 0.15  # how much each picture zooms in over its segment
 GOLD, WHITE = (235, 185, 60), (255, 255, 255)
 UA = {"User-Agent": "wild_history_top_5/0.1 (https://github.com/ArtB92/wild_history_top_5)"}
 COMMONS_API = ("https://commons.wikimedia.org/w/api.php?action=query&format=json&generator=search"
@@ -143,11 +144,13 @@ def overlays(head, sub, body, body_font, out_head, out_body):
 def render_segment(bg, head, body, seconds, body_at, out):
     frames = seconds * FPS
     loop = ["-loop", "1", "-framerate", str(FPS), "-t", str(seconds), "-i"]
-    graph = (f"[0]zoompan=z='1+0.08*on/{frames}':x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2':d=1:s={W}x{H}:fps={FPS}[bg];"
+    # One input frame, upscaled 8x, so zoompan's whole-pixel crop steps are too small to see (no jiggle).
+    graph = (f"[0]scale={W * 8}:{H * 8},zoompan=z='1+{ZOOM}*on/{frames}':x='iw/2-iw/zoom/2':y='ih/2-ih/zoom/2'"
+             f":d={frames}:s={W}x{H}:fps={FPS}[bg];"
              f"[1]format=rgba,fade=in:st=0.1:d=0.4:alpha=1[h];"
              f"[2]format=rgba,fade=in:st={body_at}:d=0.8:alpha=1[b];"
              f"[bg][h]overlay[a];[a][b]overlay,fade=in:d=0.3,fade=out:st={seconds - 0.3}:d=0.3,format=yuv420p")
-    run(["ffmpeg", "-y", *loop, str(bg), *loop, str(head), *loop, str(body), "-filter_complex", graph,
+    run(["ffmpeg", "-y", "-i", str(bg), *loop, str(head), *loop, str(body), "-filter_complex", graph,
          "-t", str(seconds), "-r", str(FPS), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", str(out)])
 
 

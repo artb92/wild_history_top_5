@@ -14,7 +14,9 @@ Make a Top 5 video about: $ARGUMENTS
    - `hook_image_query` / `hook_prompt`: picture for the hook.
    - `entries`: exactly 5, numbered 5 to 1, each with `title` (under 6 words), `year`,
      `text` (2 or 3 sentences, at most 50 words), `image_query` and `prompt`.
-   - `image_query` is a Wikimedia Commons search for a famous public-domain painting or photo of the event
+   - `image_query` is a Wikimedia Commons search for the picture of the event. For events from roughly 1850 on,
+     use the most relevant real photograph (put its known title words and "photograph" in the query, e.g.
+     "Stalin und Ribbentrop im Kreml photograph 1939"). For older events, use a famous painting
      (name the painter or the painting when you know it). `prompt` is the AI image fallback
      ("dramatic oil painting" style). Avoid queries likely to return Nazi symbols or gore.
 3. Show the user the 5 entries and hooks, then run `python3 make_video.py videos/<slug>/script.json`.
