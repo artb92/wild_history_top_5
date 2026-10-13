@@ -1,0 +1,48 @@
+{
+  "title": "The 5 Greatest Last Stands in History",
+  "hook": "#4 is still celebrated every year.",
+  "hook_image_query": "Custer's Last Stand Edgar Paxson painting",
+  "hook_prompt": "a lone warrior holding a narrow pass against a vast army, dramatic oil painting, dark cinematic lighting",
+  "entries": [
+    {
+      "number": 5,
+      "title": "The Alamo",
+      "year": "1836",
+      "text": "Around 200 Texan defenders held an old mission in San Antonio against the Mexican army for 13 days. On the final morning, the walls were stormed and almost every defender was killed. Weeks later, 'Remember the Alamo!' became the battle cry that won Texas its independence.",
+      "image_query": "Fall of the Alamo Onderdonk painting",
+      "prompt": "defenders fighting on the walls of the Alamo mission at dawn, 1836, dramatic oil painting"
+    },
+    {
+      "number": 4,
+      "title": "Camerone",
+      "year": "1863",
+      "text": "In Mexico, 65 men of the French Foreign Legion were trapped in a farmhouse by around 2,000 Mexican soldiers. They fought for ten hours without water. The last five standing charged with bayonets. The Legion still celebrates Camerone Day every 30 April.",
+      "image_query": "Combat de Camerone Beaucé",
+      "prompt": "French Foreign Legion soldiers defending a burning hacienda in Mexico, 1863, dramatic oil painting"
+    },
+    {
+      "number": 3,
+      "title": "The Siege of Szigetvár",
+      "year": "1566",
+      "text": "Croatian noble Nikola Zrinski held a small Hungarian fortress against a huge Ottoman army for over a month. Sultan Suleiman the Magnificent died in his tent during the siege. When the castle was lost, Zrinski led his last men out in a suicidal charge.",
+      "image_query": "Zrínyi's sally from Szigetvár Krafft",
+      "prompt": "a nobleman leading a final charge out of a burning castle against an Ottoman army, 1566, dramatic oil painting"
+    },
+    {
+      "number": 2,
+      "title": "Masada",
+      "year": "73 AD",
+      "text": "After Rome crushed the Jewish revolt, 960 rebels held out on a desert clifftop fortress. The Romans built a giant ramp up the mountain to reach them. According to the historian Josephus, when the walls fell, the defenders chose death over slavery.",
+      "image_query": "Masada fortress aerial view",
+      "prompt": "ancient fortress on a desert cliff with a Roman siege ramp, dramatic sunset, cinematic"
+    },
+    {
+      "number": 1,
+      "title": "Thermopylae",
+      "year": "480 BC",
+      "text": "King Leonidas and 300 Spartans, with a few thousand Greek allies, blocked a narrow pass against the vast Persian army of Xerxes. They held for three days until a traitor revealed a mountain path. The 300 stayed and fought to the last man.",
+      "image_query": "Leonidas at Thermopylae David painting",
+      "prompt": "Spartan hoplites holding a narrow mountain pass against a massive Persian army, dramatic oil painting"
+    }
+  ]
+}

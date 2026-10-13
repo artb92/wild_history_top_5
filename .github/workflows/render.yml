@@ -1,0 +1,53 @@
+name: Render next video
+
+on:
+  schedule:
+    # shortcut: */2 restarts each month, so a 31st and a 1st both run; fine for now.
+    - cron: "37 15 */2 * *"  # every 2 days, 15:37 UTC (evening in Europe)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pick the oldest video not yet published
+        id: pick
+        run: |
+          touch videos/published.txt
+          for d in $(ls -d videos/*/ | sort); do
+            slug=$(basename "$d")
+            if ! grep -qx "$slug" videos/published.txt; then echo "slug=$slug" >> "$GITHUB_OUTPUT"; break; fi
+          done
+
+      - name: Stop if the queue is empty
+        if: steps.pick.outputs.slug == ''
+        run: echo "::warning::No unpublished script in videos/. Nothing to render."
+
+      - name: Install ffmpeg and Pillow
+        if: steps.pick.outputs.slug != ''
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install -r requirements.txt
+
+      - name: Render
+        if: steps.pick.outputs.slug != ''
+        run: python3 make_video.py "videos/${{ steps.pick.outputs.slug }}/script.json"
+
+      - name: Publish as a GitHub release and mark as published
+        if: steps.pick.outputs.slug != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SLUG: ${{ steps.pick.outputs.slug }}
+        run: |
+          title=$(python3 -c "import json; print(json.load(open('videos/$SLUG/script.json'))['title'])")
+          gh release create "$SLUG" "videos/$SLUG/$SLUG.mp4" --title "$title" \
+            --notes "Ready to post. Image credits for the description:"$'\n\n'"$(cat videos/$SLUG/credits.txt)"
+          echo "$SLUG" >> videos/published.txt
+          git config user.name "github-actions[bot]"
+          git config user.email "41898+github-actions[bot]@users.noreply.github.com"
+          git add videos/published.txt
+          git commit -m "Published $SLUG"
+          git pull --rebase -q && git push

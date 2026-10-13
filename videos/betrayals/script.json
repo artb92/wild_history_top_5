@@ -1,0 +1,48 @@
+{
+  "title": "The 5 Biggest Betrayals in History",
+  "hook": "Number 1 cost 27 million lives.",
+  "hook_image_query": "Death of Julius Caesar Camuccini",
+  "hook_prompt": "a dagger hidden behind a smiling Roman senator, dramatic oil painting, dark cinematic lighting",
+  "entries": [
+    {
+      "number": 5,
+      "title": "Benedict Arnold sells West Point",
+      "year": "1780",
+      "text": "A celebrated general of the American Revolution, Arnold secretly plotted to hand the fort of West Point to the British. The plan collapsed when his contact, Major John André, was caught with the plans hidden in his boot. Arnold fled to the British, and his name became America's word for traitor.",
+      "image_query": "Capture of Major André painting",
+      "prompt": "18th century American general secretly passing documents to a British officer at night, dramatic oil painting"
+    },
+    {
+      "number": 4,
+      "title": "Mir Jafar at the Battle of Plassey",
+      "year": "1757",
+      "text": "Mir Jafar commanded much of the Nawab of Bengal's army, but made a secret deal with the British East India Company. At Plassey, his troops stood by and refused to fight. The British won, made him a puppet ruler, and began 190 years of rule over India.",
+      "image_query": "Lord Clive meeting Mir Jafar after the Battle of Plassey Hayman",
+      "prompt": "British officer shaking hands with an Indian nobleman after a battle, 1757, dramatic oil painting"
+    },
+    {
+      "number": 3,
+      "title": "Judas Iscariot",
+      "year": "c. 30 AD",
+      "text": "One of the twelve apostles, Judas agreed to hand Jesus over to the authorities for thirty pieces of silver. He pointed him out in the garden of Gethsemane with a kiss. Two thousand years later, a 'Judas kiss' still means betrayal disguised as friendship.",
+      "image_query": "Giotto Kiss of Judas Scrovegni",
+      "prompt": "the kiss of Judas in a dark garden at night, torches, Renaissance oil painting"
+    },
+    {
+      "number": 2,
+      "title": "Brutus and the Ides of March",
+      "year": "44 BC",
+      "text": "Julius Caesar spared Brutus after the civil war and treated him almost like a son. On the Ides of March, Brutus joined the senators who stabbed Caesar 23 times. They wanted to save the Roman Republic. Instead, it fell to an emperor.",
+      "image_query": "Gérôme The Death of Caesar",
+      "prompt": "assassination of Julius Caesar in the Roman senate, senators with daggers, dramatic oil painting"
+    },
+    {
+      "number": 1,
+      "title": "Hitler betrays Stalin",
+      "year": "1941",
+      "text": "In 1939, Hitler and Stalin signed a non-aggression pact and split Eastern Europe between them. On 22 June 1941, Germany broke it and invaded with over 3 million soldiers. The war that followed killed around 27 million Soviet citizens.",
+      "image_query": "Stalin und Ribbentrop im Kreml photograph 1939",
+      "prompt": "two dictators shaking hands over a map of Europe, tanks in the shadows, dramatic oil painting, no symbols"
+    }
+  ]
+}
